@@ -5,7 +5,7 @@ A program that checks that a given client-process is running. In case of an erro
 ### Motivation for using a WatchDog
 Watchdogs are commonly found in many systems where humans cannot easily access the equipment or would be unable to react to faults in a timely manner. In such systems, the computer cannot depend on a human to invoke a reboot if it hangs; it must be self-reliant.
 
-The current Project provides an API `./include/watchdog.h` with two main functions: run or stop watching. The user can run the watchdog whenever he decides; in a critical section or for a longer durations.
+The current Project provides an API `./include/watchdog.h` with two main functions: run or stop watching. The user can run the watchdog whenever he decides; in a critical section or for longer durations.
 
 
 ### WD API Design
