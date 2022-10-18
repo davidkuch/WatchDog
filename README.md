@@ -1,5 +1,5 @@
 # Watchdog
-A program that checks that a given client-process is running. Ii the client failed - the watchdog would restart it.
+A program that checks that a given client-process is running. If the client failed - the watchdog would restart it.
 
 
 The current Project provides an API  with two main functions: run and stop watching.
@@ -13,6 +13,13 @@ Public to the user
 Private modules
 - keep_watching.h
 - scheduler.h
+
+### Flow
+This implementation is based on signal-passing.<br>
+Both the client process and the watchdog share one function in common: KeepWatching. <br>
+The function takes a PID of a process to watch as argument, creates a Scheduler that sends signals to indicate that it is alive,
+and expects to get such signals as well.
+If no signal arrives and the time limit is finished, it restarts the other process.
 
 ## Usage
 Download the following repo in order to use the watchdog.
