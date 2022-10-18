@@ -20,6 +20,9 @@ Both the client process and the watchdog share one function in common: KeepWatch
 The function takes a PID of a process to watch as argument, creates a Scheduler that sends signals to indicate that it is alive,
 and expects to get such signals as well.
 If no signal arrives and the time limit is finished, it restarts the other process.
+So, the call to KeepWatching is a blocking call. That is fine for the watchdog app, but not for the client!
+To do so, the wrapper for the client starts a new thread, where the call is made.
+When StopWatching is called, the thread is terminated.
 
 ## Usage
 Download the following repo in order to use the watchdog.
